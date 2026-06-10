@@ -1,0 +1,34 @@
+{
+    "name": "christer77/omnimsg",
+    "description": "Unified messaging package for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "OmniMsg\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OmniMsg\\OmniMsgServiceProvider"
+            ],
+            "aliases": {
+                "OmniMsg": "OmniMsg\\Facades\\OmniMsg"
+            }
+        }
+    },
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^12.0",
+        "illuminate/http": "^12.0"
+    },
+    "authors": [
+        {
+            "name": "christer77",
+            "email": "kahashachrister77@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
