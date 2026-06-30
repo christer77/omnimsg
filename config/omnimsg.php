@@ -22,6 +22,18 @@ return [
             ],
         ],
         'sms' => [],
+        'mobile_money' => [
+            'default_driver' => env('OMNIMSG_MOBILE_MONEY_DRIVER', 'pawapay'),
+            'drivers' => [
+                'pawapay' => [
+                    'class' => \OmniMsg\Channels\MobileMoney\Driver\PawaPayDriver::class,
+                    'credentials' => [
+                        'base_url' => env('PAWAPAY_MODE') === 'production' ? env('PAWAPAY_API_PRODUCTION_URL') : env('PAWAPAY_API_SANDBOX_URL'),
+                        'token'    => env('PAWAPAY_API_KEY'),
+                    ],
+                ],
+            ],
+        ],
         // ... other channels
     ],
 ];
