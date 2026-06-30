@@ -43,6 +43,24 @@ class ChannelManager
         return $driver->send($body, $recipient, $options);
     }
 
+    public function initDeposit(array $options)
+    {
+        $driver = $this->resolveDriver();
+        return $driver->initDeposit($options);
+    }
+    
+    public function initWithdraw(array $options)
+    {
+        $driver = $this->resolveDriver();
+        return $driver->initWithdraw($options);
+    }
+    
+    public function getTransactionStatus(string $transaction_id, string $type = 'deposit')
+    {
+        $driver = $this->resolveDriver();
+        return $driver->getTransactionStatus($transaction_id, $type);
+    }
+
     protected function resolveDriver()
     {
         $channelConfig = config("omnimsg.channels.{$this->defaultChannel}");
